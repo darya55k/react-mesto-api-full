@@ -1,0 +1,23 @@
+.sign__btn-submit {
+    font-family: Inter;
+    width: 100%;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: #000000;
+    min-height: 50px;
+    padding: 0;
+    margin: 186px 0 15px;
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  
+  
+    .sign__btn-submit:hover {
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  

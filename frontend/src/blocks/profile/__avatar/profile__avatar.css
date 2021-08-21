@@ -1,0 +1,14 @@
+.profile__avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: url("../../../images/avatar-cursor.svg");
+
+    cursor: pointer;
+}
+.profile__avatar:hover{
+    background-image: url("../../../images/avatar-cursor.svg");
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}

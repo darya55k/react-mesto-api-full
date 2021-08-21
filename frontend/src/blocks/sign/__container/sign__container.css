@@ -1,0 +1,10 @@
+.sign__container {
+    
+    margin: 0 auto;
+    min-width: 430px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-width: 358px;
+
+}

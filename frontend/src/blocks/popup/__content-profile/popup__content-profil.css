@@ -1,0 +1,13 @@
+.popup__content-profile{
+    width: 816px;
+    max-height: 540px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+}
+@media screen and (max-width: 1279px) {
+    .popup__content-profile{
+        width: 240px;
+        height: 300px;
+    }
+}

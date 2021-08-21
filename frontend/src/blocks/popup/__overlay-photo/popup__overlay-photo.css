@@ -1,0 +1,9 @@
+.popup__overlay-photo{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.9;
+}

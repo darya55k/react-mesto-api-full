@@ -1,0 +1,11 @@
+.form__span-input-error{
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0;
+    color: #ff0000;
+    width: 238px;
+    margin: 6px 0 13px;
+}

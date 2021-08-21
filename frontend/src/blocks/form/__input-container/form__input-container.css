@@ -1,0 +1,12 @@
+.form__input-container {
+    border-style: none;
+    padding: 0;
+    padding-top: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+@media screen and (max-width: 1279px) {
+    .form__input-container {
+        padding-top: 45px;
+    }
+}
