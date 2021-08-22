@@ -69,10 +69,6 @@
     }
 }
     const api = new Api({
-        url: "https://mesto.nomoreparties.co/v1/cohort-24",
-        headers: {
-            authorization: "165e4d32-519f-4771-b3bb-371d3aa2b234",
-            "Content-Type": "application/json",
-        },
+        url: "https://mesto.darya55k.nomoredomains.monster/api"
     });
 export default api;

@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://mesto.darya55k.nomoredomains.monster/api';
 
 const checkResponse = (res) => {
   if (res.ok) {
