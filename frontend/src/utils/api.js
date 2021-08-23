@@ -69,6 +69,6 @@
     }
 }
     const api = new Api({
-        url: "https://mesto.darya55k.nomoredomains.monster/api"
+        url: "https://mesto-back.darya55k.nomoredomains.club/api"
     });
 export default api;
