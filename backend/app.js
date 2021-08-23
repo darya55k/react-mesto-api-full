@@ -21,6 +21,9 @@ const allowedCors = [
   'https://mesto.darya55k.nomoredomains.monster',
 ];
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -46,9 +49,6 @@ app.use((req, res, next) => {
 
   return next();
 });
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
