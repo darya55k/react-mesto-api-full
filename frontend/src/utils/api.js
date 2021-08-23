@@ -69,6 +69,10 @@
     }
 }
     const api = new Api({
-        url: "https://mesto-back.darya55k.nomoredomains.club/api"
+        url: "https://mesto-back.darya55k.nomoredomains.club",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem('token')}`,
+            "Content-Type": "application/json",
+        },
     });
 export default api;
