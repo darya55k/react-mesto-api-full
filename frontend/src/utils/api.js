@@ -73,8 +73,9 @@
     const api = new Api({
         url: "https://mesto-back.darya55k.nomoredomains.club",
         headers: {
-            authorization: `Bearer ${localStorage.getItem('token')}`,
+            
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem('token')}`,
         },
     });
 export default api;
