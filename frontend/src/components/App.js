@@ -129,7 +129,7 @@ function App() {
                     localStorage.setItem("jwt", data.jwt);
                     setEmail(data.data.email);
                 }
-                history.push("/sign-in");
+                history.push("/signin");
                 setIsSuccess(true);
 
                 setIsInfoTooltipOpen(true);
@@ -163,7 +163,7 @@ function App() {
         localStorage.removeItem("jwt");
         setEmail("");
         setLoggedIn(false);
-        history.push("/sign-in");
+        history.push("/signin");
     }
     return (
         <div className="root">
@@ -185,13 +185,13 @@ function App() {
                             loggedIn={loggedIn}
                         />
 
-                        <Route path="/sign-up">
+                        <Route path="/signup">
                             <Register onRegister={handleRegister} />
                         </Route>
-                        <Route path="/sign-in">
+                        <Route path="/signin">
                             <Login onLogin={handleLogin} />
                         </Route>
-                        <Route> {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}</Route>
+                        <Route> {loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}</Route>
                     </Switch>
 
                     <InfoTooltip onClose={closeAllPopups} isOpen={isInfoTooltipOpen} success={isSuccess} />
