@@ -30,8 +30,8 @@ function App() {
 
     React.useEffect(() => {
         if (localStorage.getItem("token")) {
-            const jwt = localStorage.getItem("token");
-            auth.getContent(jwt)
+            const token = localStorage.getItem("token");
+            auth.getContent(token)
                 .then((res) => {
                     if (res) {
                         setEmail(res.data.email);
@@ -126,7 +126,7 @@ function App() {
         auth.register(email, password)
             .then((data) => {
                 if (data) {
-                    localStorage.setItem("token", data.jwt);
+                    localStorage.setItem("token", data.token);
                     setEmail(data.data.email);
                 }
                 history.push("/sign-in");
