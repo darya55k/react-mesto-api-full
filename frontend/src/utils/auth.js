@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://mesto-back.darya55k.nomoredomains.club/api';
+export const BASE_URL = 'https://mesto-back.darya55k.nomoredomains.club';
 
 const checkResponse = (res) => {
   if (res.ok) {

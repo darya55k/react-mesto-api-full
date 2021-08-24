@@ -14,16 +14,16 @@ const auth = require('./middlewares/auth');
 const { PORT = 3000 } = process.env;
 
 const app = express();
-app.use(cors());
 
-const allowedCors = [
+/* const allowedCors = [
   'https://praktikum.tk',
   'http://praktikum.tk',
   'http://localhost:3000',
   'http://mesto.darya55k.nomoredomains.monster',
   'https://mesto.darya55k.nomoredomains.monster',
 ];
-
+*/
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['accept-languageaccess-control-request-headers'];
@@ -54,6 +54,7 @@ app.use((req, res, next) => {
 
   return next();
 });
+*/
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
