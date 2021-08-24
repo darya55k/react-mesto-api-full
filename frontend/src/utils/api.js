@@ -75,7 +75,7 @@
         headers: {
             
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+            "Authorization": `Bearer ${localStorage.getItem('token')}`,
         },
     });
 export default api;

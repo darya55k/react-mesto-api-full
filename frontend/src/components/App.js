@@ -29,8 +29,8 @@ function App() {
     const history = useHistory();
 
     React.useEffect(() => {
-        if (localStorage.getItem("jwt")) {
-            const jwt = localStorage.getItem("jwt");
+        if (localStorage.getItem("token")) {
+            const jwt = localStorage.getItem("token");
             auth.getContent(jwt)
                 .then((res) => {
                     if (res) {
@@ -126,7 +126,7 @@ function App() {
         auth.register(email, password)
             .then((data) => {
                 if (data) {
-                    localStorage.setItem("jwt", data.jwt);
+                    localStorage.setItem("token", data.jwt);
                     setEmail(data.data.email);
                 }
                 history.push("/sign-in");
@@ -147,7 +147,7 @@ function App() {
         return auth
             .authorize(email, password)
             .then((data) => {
-                localStorage.setItem("jwt", data.token);
+                localStorage.setItem("token", data.token);
                 setEmail(email);
                 setLoggedIn(true);
                 history.push("/");
@@ -160,7 +160,7 @@ function App() {
     }
 
     function handleLogout() {
-        localStorage.removeItem("jwt");
+        localStorage.removeItem("token");
         setEmail("");
         setLoggedIn(false);
         history.push("/sign-in");
