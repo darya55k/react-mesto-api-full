@@ -29,9 +29,9 @@ function App() {
     const history = useHistory();
 
     React.useEffect(() => {
-        if (localStorage.getItem("token")) {
-            const token = localStorage.getItem("token");
-            auth.getContent(token)
+        if (localStorage.getItem("jwt")) {
+            const jwt = localStorage.getItem("jwt");
+            auth.getContent(jwt)
                 .then((res) => {
                     if (res) {
                         setEmail(res.data.email);
@@ -40,7 +40,7 @@ function App() {
                     history.push("/");
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.error(err);
                     setIsInfoTooltipOpen(true);
                 });
         }
@@ -126,7 +126,7 @@ function App() {
         auth.register(email, password)
             .then((data) => {
                 if (data) {
-                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("jwt", data.jwt);
                     setEmail(data.data.email);
                 }
                 history.push("/sign-in");
@@ -147,7 +147,7 @@ function App() {
         return auth
             .authorize(email, password)
             .then((data) => {
-                localStorage.setItem("token", data.token);
+                localStorage.setItem("jwt", data.token);
                 setEmail(email);
                 setLoggedIn(true);
                 history.push("/");
@@ -160,7 +160,7 @@ function App() {
     }
 
     function handleLogout() {
-        localStorage.removeItem("token");
+        localStorage.removeItem("jwt");
         setEmail("");
         setLoggedIn(false);
         history.push("/sign-in");
