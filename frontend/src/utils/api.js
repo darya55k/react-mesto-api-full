@@ -47,7 +47,7 @@
         }).then((res) => this._checkRequestResult(res));
     }
     setLikeStatus(id, isLiked) {
-        return fetch(`${this._url}/cards/likes/${id}`, {
+        return fetch(`${this._url}/cards/${id}/likes/`, {
             method: isLiked ?  "PUT" : "DELETE",
             headers: this._headers,
         }).then((res) => this._checkRequestResult(res));
