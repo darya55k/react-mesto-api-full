@@ -6,12 +6,14 @@
 
     getUserInfo() {
         return fetch(`${this._url}/users/me`, {
+            method: 'GET',
             headers: this._headers,
         }).then((res) => this._checkRequestResult(res));
     }
 
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
+            method: 'GET',
             headers: this._headers,
         }).then((res) => this._checkRequestResult(res));
     }
@@ -71,7 +73,7 @@
     const api = new Api({
         url: "https://mesto-back.darya55k.nomoredomains.club",
         headers: {
-            "Authorization": `Bearer ${localStorage.getItem('token')}`,
+            authorization: `Bearer ${localStorage.getItem('token')}`,
             "Content-Type": "application/json",
         },
     });
