@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -22,7 +22,7 @@ const app = express();
   'http://mesto.darya55k.nomoredomains.monster',
   'https://mesto.darya55k.nomoredomains.monster',
 ]; */
-app.use(cors({ origin: ['https://mesto.darya55k.nomoredomains.monster', 'https://localhost:3000'] }));
+// app.use(cors({ origin: ['https://mesto.darya55k.nomoredomains.monster', 'https://localhost:3000'] }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
