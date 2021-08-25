@@ -23,7 +23,13 @@ const app = express();
   'https://mesto.darya55k.nomoredomains.monster',
 ];
 */
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://mesto.darya55k.nomoredomains.monster',
+    'http://mesto.darya55k.nomoredomains.monster',
+    'http://localhost:3000',
+  ],
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
