@@ -1,4 +1,4 @@
-require('dotenv').config();
+/* require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/unauthorized-err');
 
@@ -23,4 +23,4 @@ module.exports = (req, res, next) => {
   req.user = payload;
 
   next();
-};
+}; */
