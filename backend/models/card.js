@@ -12,8 +12,7 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(url) {
-        const regex = /^https?:\/\/(www\.)?\d?[a-zA-Z-]+\.\w+([a-zA-Z/]+)?#?/;
-        return regex.test(url); // если url не удовлетворяет условиям, вернётся false
+        return /https?:\/\/(www.)?\w*\S*\./gi.test(url); // если url не удовлетворяет условиям, вернётся false
       },
       message: 'Введите URL.', // когда validator вернёт false, будет использовано это сообщение
     },
