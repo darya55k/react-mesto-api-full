@@ -13,13 +13,13 @@ function Header(props) {
                     </a>
                 </div>
             )}
-            {currentLocation.pathname === "/sign-up" && (
-                <Link to="/sign-in" className="header__link">
+            {currentLocation.pathname === "/signup" && (
+                <Link to="/signin" className="header__link">
                     Войти
                 </Link>
             )}
-            {currentLocation.pathname === "/sign-in" && (
-                <Link to="/sign-up" className="header__link">
+            {currentLocation.pathname === "/signin" && (
+                <Link to="/signup" className="header__link">
                     Регистрация
                 </Link>
             )}

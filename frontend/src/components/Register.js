@@ -38,7 +38,7 @@ export default function Register(props) {
                             Зарегистрироваться
                         </button>
                         <p className="sign__form-link-question">
-                            <Link to="/sign-in" className="sign__form-link header__link">
+                            <Link to="/signin" className="sign__form-link header__link">
                                 Уже зарегистрированы? Войти
                             </Link>
                         </p>
