@@ -16,7 +16,10 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => res.status(201).send({ data: card }))
+    .then((data) => {
+      const card = { ...data, owner: req.user };
+      return res.status(201).send({ data: card });
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
@@ -52,6 +55,8 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
+    .populate('likes')
+    .populate('owner')
     .catch(() => {
       throw new NotFoundError('Нет карточки с таким id');
     })
@@ -73,6 +78,8 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
+    .populate('likes')
+    .populate('owner')
     .catch(() => {
       throw new NotFoundError('Нет карточки с таким id');
     })
