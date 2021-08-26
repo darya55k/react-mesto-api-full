@@ -6,7 +6,7 @@ const ForbiddenError = require('../errors/forbidden-err');
 const UnauthorizedError = require('../errors/unauthorized-err');
 // Запрос списка карточек
 module.exports.getCards = (req, res, next) => {
-  Card.find({}).populate('owner')
+  Card.find({}).populate('owner').populate('likes')
     .then((cards) => res.status(200).send({ data: cards }))
     .catch(next);
 };
@@ -16,8 +16,9 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: req.user._id })
-    .then((data) => {
-      const card = { ...data, owner: req.user };
+    .then((createdCard) => {
+      const card = createdCard.toObject();
+      card.owner = req.user;
       return res.status(201).send({ data: card });
     })
     .catch((err) => {
@@ -60,9 +61,7 @@ module.exports.likeCard = (req, res, next) => {
     .catch(() => {
       throw new NotFoundError('Нет карточки с таким id');
     })
-    .then((card) => {
-      res.status(200).send(card);
-    })
+    .then((card) => res.status(200).send({ data: card }))
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
@@ -84,7 +83,7 @@ module.exports.dislikeCard = (req, res, next) => {
       throw new NotFoundError('Нет карточки с таким id');
     })
     .then((card) => {
-      res.status(200).send(card);
+      res.status(200).send({ data: card });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
