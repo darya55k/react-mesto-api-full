@@ -96,9 +96,13 @@ function App() {
     }
 
     function handleUpdateUser(FormData) {
-        api.updateUserInfo(FormData)
-            .then((userData) => {
-                setCurrentUser(userData);
+        api.updateUserInfo(FormData.name, FormData.about)
+            .then((res) => {
+                setCurrentUser({
+                    ...currentUser,
+                    name: res.data.name,
+                    about: res.data.about,
+                  });;
                 closeAllPopups();
             })
             .catch((error) => console.log(error));
@@ -107,16 +111,16 @@ function App() {
     function handleUpdateAvatar(formData) {
         api.setAvatar(formData)
             .then((res) => {
-                setCurrentUser(res);
+                setCurrentUser({ ...currentUser, avatar: res.data.avatar });
                 closeAllPopups();
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
     }
 
-    function handleAddPlaceSubmit(formData) {
-        api.createCard(formData)
+    function handleAddPlaceSubmit(data) {
+        api.createCard(data.title, data.link)
             .then((res) => {
-                setCards([res, ...cards]);
+                setCards([res.data, ...cards]);
                 closeAllPopups();
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
