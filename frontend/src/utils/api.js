@@ -29,13 +29,13 @@
         }).then((res) => this._checkRequestResult(res));
     }
 
-    createCard(place, image) {
+    createCard(data) {
         return fetch(`${this._url}/cards`, {
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
-                name: place,
-                link: image,
+                name: data.place,
+                link: data.image,
             }),
         }).then((res) => this._checkRequestResult(res));
     }
