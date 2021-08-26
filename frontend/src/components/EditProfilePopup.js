@@ -32,7 +32,7 @@ function EditProfilePopup(props) {
     return (
         <PopupWithForm title="Редактировать профиль" name="popup-profile" textButtonSubmit="Сохранить" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
             <input type="text" name="name" id="form-profile" className="form__item form__item_input_title" placeholder="Имя" minLength="2" maxLength="40" value={name || ""} onChange={handleNameChange} required />
-            <span className="form__item-error popup__form-title-error form__span-input-error"></span>
+            <span className="form__item-error popup__form-title-error form__span-input-error">Поле должно содержать не менее 2 символов</span>
             <input
                 type="text"
                 name="about"
@@ -45,7 +45,7 @@ function EditProfilePopup(props) {
                 onChange={handleDescriptionChange}
                 required
             />
-            <span className="form__item-error popup__form-subtitle-error form__span-input-error"></span>
+            <span className="form__item-error popup__form-subtitle-error form__span-input-error">Поле должно содержать не менее 2 символов</span>
         </PopupWithForm>
     );
 }
