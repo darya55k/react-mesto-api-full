@@ -53,12 +53,12 @@
         }).then((res) => this._checkRequestResult(res));
     }
 
-    setAvatar(link) {
+    setAvatar(data) {
         return fetch(`${this._url}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                avatar: link,
+                avatar: data.link,
             }),
         }).then((res) => this._checkRequestResult(res));
     }
