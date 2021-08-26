@@ -18,13 +18,13 @@
         }).then((res) => this._checkRequestResult(res));
     }
 
-    updateUserInfo(formData) {
+    updateUserInfo(name, about) {
         return fetch(`${this._url}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                name: formData.name,
-                about: formData.about,
+                name: name,
+                about: about,
             }),
         }).then((res) => this._checkRequestResult(res));
     }
