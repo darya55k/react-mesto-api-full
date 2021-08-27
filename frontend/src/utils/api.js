@@ -34,9 +34,9 @@
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
-              name: data.name,
-              link: data.link,
-            }),
+              name: data.place,
+              link: data.image
+             }),
         })
         .then((res) => this._checkRequestResult(res));
     }
