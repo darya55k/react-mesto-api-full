@@ -35,7 +35,7 @@
             headers: this._headers,
             body: JSON.stringify({
               name: name,
-              link: link
+              link: link,
              }),
         })
         .then((res) => this._checkRequestResult(res));
