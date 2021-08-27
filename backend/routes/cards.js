@@ -19,7 +19,7 @@ const method = (value) => {
 // Запрос на создание карточки
 router.post('/cards', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
     // eslint-disable-next-line no-useless-escape
     link: Joi.string().required().custom(method),
   }),
