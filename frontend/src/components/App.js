@@ -118,9 +118,9 @@ function App() {
     }
 
     function handleAddPlaceSubmit(data) {
-        api.createCard(data)
+        api.createCard(data.name, data.link)
             .then((res) => {
-                setCards([res, ...cards]);
+                setCards([res.data, ...cards]);
                 closeAllPopups();
             })
             .catch((err) => console.log(`Ошибка: ${err}`));
