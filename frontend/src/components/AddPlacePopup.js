@@ -21,8 +21,8 @@ function AddPlacePopup(props) {
     function handleSubmit(event) {
         event.preventDefault();
         props.onAddPlace({
-            place: name,
-            image: link,
+            name: name,
+            link: link,
         });
     }
 
