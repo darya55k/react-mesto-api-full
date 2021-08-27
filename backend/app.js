@@ -16,14 +16,6 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
-/* const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'http://localhost:3000',
-  'http://mesto.darya55k.nomoredomains.monster',
-  'https://mesto.darya55k.nomoredomains.monster',
-]; */
-// app.use(cors({ origin: ['https://mesto.darya55k.nomoredomains.monster', 'https://localhost:3000'] }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -34,26 +26,13 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-/* app.use((req, res, next) => {
-  const { origin } = req.headers;
-  const { method } = req;
-  const requestHeaders = req.headers['accept-languageaccess-control-request-headers'];
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
-
-  return next();
-}); */
-
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
