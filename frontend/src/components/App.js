@@ -118,7 +118,7 @@ function App() {
     }
 
     function handleAddPlaceSubmit(data) {
-        api.createCard(data)
+        api.createCard(data.place, data.image)
             .then((res) => {
                 setCards([res.data, ...cards]);
                 closeAllPopups();
