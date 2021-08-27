@@ -131,7 +131,7 @@ function App() {
             .then((data) => {
                 if (data) {
                     localStorage.setItem("jwt", data.jwt);
-                    setEmail(data.data.email);
+                    setEmail(data.email);
                 }
                 history.push("/signin");
                 setIsSuccess(true);
@@ -139,7 +139,7 @@ function App() {
                 setIsInfoTooltipOpen(true);
             })
             .catch((err) => {
-                console.error(err);
+                console.log(err);
                 setIsSuccess(false);
 
                 setIsInfoTooltipOpen(true);
