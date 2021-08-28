@@ -61,15 +61,14 @@ module.exports.likeCard = (req, res, next) => {
     .orFail(new Error('PageNotFound'))
     .then((card) => res.status(200).send({ data: card }))
     .catch((err) => {
-      if (err.name === 'PageNotFound') {
+      if (err.message === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
-      if (err.message === 'CastError') {
+      if (err.name === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
-      } else {
-        next(err);
       }
-    });
+    })
+    .catch(next);
 };
 
 module.exports.dislikeCard = (req, res, next) => {
@@ -83,15 +82,14 @@ module.exports.dislikeCard = (req, res, next) => {
     .orFail(new Error('PageNotFound'))
     .then((card) => res.status(200).send({ data: card }))
     .catch((err) => {
-      if (err.name === 'PageNotFound') {
+      if (err.message === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
     })
     .catch((err) => {
-      if (err.message === 'CastError') {
+      if (err.name === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
-      } else {
-        next(err);
       }
-    });
+    })
+    .catch(next);
 };
