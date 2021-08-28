@@ -61,7 +61,7 @@ module.exports.likeCard = (req, res, next) => {
     .orFail(new Error('PageNotFound'))
     .then((card) => res.status(200).send({ data: card }))
     .catch((err) => {
-      if (err.message === 'PageNotFound') {
+      if (err.name === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
       if (err.name === 'CastError') {
@@ -83,7 +83,7 @@ module.exports.dislikeCard = (req, res, next) => {
     .orFail(new Error('PageNotFound'))
     .then((card) => res.status(200).send({ data: card }))
     .catch((err) => {
-      if (err.message === 'PageNotFound') {
+      if (err.name === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
     })
