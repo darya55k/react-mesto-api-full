@@ -85,8 +85,6 @@ module.exports.dislikeCard = (req, res, next) => {
       if (err.message === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
-    })
-    .catch((err) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
       }
