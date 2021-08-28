@@ -64,7 +64,7 @@ module.exports.likeCard = (req, res, next) => {
       if (err.name === 'PageNotFound') {
         throw new NotFoundError('Карточка не найдена');
       }
-      if (err.name === 'CastError') {
+      if (err.message === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
       } else {
         next(err);
@@ -88,7 +88,7 @@ module.exports.dislikeCard = (req, res, next) => {
       }
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.message === 'CastError') {
         throw new BadRequestError('Нет карточки с таким id');
       } else {
         next(err);
